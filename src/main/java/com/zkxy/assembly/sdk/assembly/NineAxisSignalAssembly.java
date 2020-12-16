@@ -12,11 +12,6 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @Description : 九轴组包逻辑
- * @Author : ChangHao
- * @Date: 2020-09-07 15:40
- */
 @SuppressWarnings("all")
 public class NineAxisSignalAssembly extends BaseSignalAssembly {
     private static final Logger LOG = LoggerFactory.getLogger(NineAxisSignalAssembly.class);

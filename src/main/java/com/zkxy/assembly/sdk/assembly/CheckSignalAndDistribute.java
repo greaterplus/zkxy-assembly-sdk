@@ -8,11 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Map;
 
-/**
- * @Description : 检测传感器选择合适的方式进入组包逻辑
- * @Author : ChangHao
- * @Date: 2020-07-28 14:06
- */
 @SuppressWarnings("all")
 public class CheckSignalAndDistribute {
 
@@ -30,8 +25,6 @@ public class CheckSignalAndDistribute {
 
     /**
      * 检测出传感器类型然后执行不同的组包逻辑
-     *
-     * @param collectData
      */
     public void checkSignalAndAssembly(String dataValue) {
         if (StrUtil.isBlank(dataValue) || dataValue.length() < 5) {

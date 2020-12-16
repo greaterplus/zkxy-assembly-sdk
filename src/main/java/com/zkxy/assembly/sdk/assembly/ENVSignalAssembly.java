@@ -10,11 +10,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
-/**
- * @Description : env传感器组包逻辑
- * @Author : ChangHao
- * @Date: 2020-08-20 15:16
- */
 @SuppressWarnings("all")
 public class ENVSignalAssembly extends BaseSignalAssembly {
     private static final Logger LOG = LoggerFactory.getLogger(ENVSignalAssembly.class);

@@ -1,10 +1,5 @@
 package com.zkxy.assembly.sdk.type;
 
-/**
- * gsr or ppg
- *
- * @author ChangHao
- */
 public enum SignalType {
     /**
      * gsr

@@ -3,11 +3,6 @@ package com.zkxy.assembly.sdk.model;
 import java.io.Serializable;
 import java.util.List;
 
-/**
- * @Description : 数据帧模型
- * @Author : ChangHao
- * @Date: 2020-08-20 16:46
- */
 @SuppressWarnings("all")
 public class DataFrame implements Serializable {
     private static final long serialVersionUID = 8128341798307373373L;

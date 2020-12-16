@@ -7,10 +7,6 @@ import com.zkxy.assembly.sdk.type.SignalType;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @author fc
- * @date 2020/11/3 15:03
- */
 public class SensorFactory {
 
     private final Device owner;

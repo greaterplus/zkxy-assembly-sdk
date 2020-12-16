@@ -12,11 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @Description : 组包父类
- * @Author : ChangHao
- * @Date: 2020-09-30 16:19
- */
 public abstract class BaseSignalAssembly implements SignalAssembly {
     protected Device device;
     protected final Map<String, List<Double>> cache = new HashMap<>();

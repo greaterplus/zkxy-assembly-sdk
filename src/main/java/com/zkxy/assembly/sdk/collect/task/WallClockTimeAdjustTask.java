@@ -14,9 +14,6 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 
 
-/**
- * @author ingin
- */
 public class WallClockTimeAdjustTask implements Runnable{
     private static final Logger LOG = LoggerFactory.getLogger(WallClockTimeAdjustTask.class);
 

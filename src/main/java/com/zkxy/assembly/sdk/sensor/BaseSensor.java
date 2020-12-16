@@ -8,11 +8,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.LinkedBlockingQueue;
 
-/**
- * @Description : 传感器基类
- * @Author : ChangHao
- * @Date: 2020-09-10 15:41
- */
 public abstract class BaseSensor {
     private static final Logger LOG = LoggerFactory.getLogger(BaseSensor.class);
     protected Device device;

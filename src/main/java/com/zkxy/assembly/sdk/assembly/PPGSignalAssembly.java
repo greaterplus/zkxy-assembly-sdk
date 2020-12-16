@@ -11,11 +11,6 @@ import org.slf4j.LoggerFactory;
 import java.nio.ByteBuffer;
 import java.util.List;
 
-/**
- * @Description : ppg传感器数据组包逻辑
- * @Author : ChangHao
- * @Date: 2020-07-28 14:08
- */
 @SuppressWarnings("all")
 public class PPGSignalAssembly extends BaseSignalAssembly {
     private static final Logger LOG = LoggerFactory.getLogger(PPGSignalAssembly.class);

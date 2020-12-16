@@ -9,11 +9,6 @@ import java.nio.ByteOrder;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @Description : 组包相关工具类
- * @Author : ChangHao
- * @Date: 2020-07-28 15:27
- */
 @SuppressWarnings("all")
 public class AssemblyUtils {
 

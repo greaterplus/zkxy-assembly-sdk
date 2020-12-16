@@ -1,10 +1,5 @@
 package com.zkxy.assembly.sdk.config;
 
-/**
- * @Description : config父类
- * @Author : ChangHao
- * @Date: 2020-12-15 10:14
- */
 class BaseConfig {
     private int rate;
     private int column;

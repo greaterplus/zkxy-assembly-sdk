@@ -19,11 +19,6 @@ import java.util.*;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 
-/**
- * @Description : 设备模型类
- * @Author : ChangHao
- * @Date: 2020-07-28 09:53
- */
 @SuppressWarnings("all")
 public class Device implements Serializable {
 

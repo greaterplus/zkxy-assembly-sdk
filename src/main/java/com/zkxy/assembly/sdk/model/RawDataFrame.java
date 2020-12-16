@@ -7,11 +7,6 @@ import lombok.ToString;
 
 import java.util.List;
 
-/**
- * @Description :
- * @Author : ChangHao
- * @Date: 2020-12-14 19:54
- */
 @Builder
 @ToString
 public class RawDataFrame {

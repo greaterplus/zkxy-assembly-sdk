@@ -9,9 +9,7 @@ import com.zkxy.assembly.sdk.type.SignalType;
 import java.util.concurrent.LinkedBlockingQueue;
 
 /**
- * @Description :
- * @Author : ChangHao
- * @Date: 2020-12-14 20:16
+ * @author ingin
  */
 public class D1 {
     public static void main(String[] args) {

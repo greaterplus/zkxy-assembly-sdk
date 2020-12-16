@@ -1,18 +1,10 @@
 package com.zkxy.assembly.sdk.utils;
 
-/**
- * @Description : byte操作工具类
- * @Author : ChangHao
- * @Date: 2020-07-07 18:17
- */
 @SuppressWarnings("all")
 public class ByteUtil {
 
     /**
      * 把一个16进制字符串转换成byte
-     *
-     * @param inHex
-     * @return
      */
     public static byte hexToByte(String inHex) {
         return (byte) Integer.parseInt(inHex, 16);
@@ -20,9 +12,6 @@ public class ByteUtil {
 
     /**
      * 把16进制字符串转换成byte数组
-     *
-     * @param inHex
-     * @return
      */
     public static byte[] hexToByteArray(String inHex) {
         int hexlen = inHex.length();
@@ -47,9 +36,6 @@ public class ByteUtil {
 
     /**
      * byte数组转换成为字符串
-     *
-     * @param bytes
-     * @return
      */
     public static String bytesToHex(byte[] bytes) {
         StringBuffer sb = new StringBuffer();
@@ -65,9 +51,6 @@ public class ByteUtil {
 
     /**
      * 拼接各个byte数组为一个大的byte数组
-     *
-     * @param bytes
-     * @return
      */
     public static byte[] joinByteArr(byte[]... bytes) {
         int preLength = 0;
@@ -100,8 +83,6 @@ public class ByteUtil {
     /**
      * 正常长度
      * 长度为4的字节数组转换成int
-     * @param bytes
-     * @return
      */
     public static int bytesToInt(byte[] bytes) {
         return bytes[0] << 24 | (bytes[1] & 0xff) << 16 | (bytes[2] & 0xff) << 8 | (bytes[3] & 0xff);
@@ -110,8 +91,6 @@ public class ByteUtil {
     /**
      * 正常长度
      * 长度为3的字节数组转换成int
-     * @param bytes
-     * @return
      */
     public static int threeBytesToInt(byte[] bytes) {
         return bytes[0] << 16 | (bytes[1] & 0xff) << 8 | (bytes[2] & 0xff);
@@ -119,8 +98,6 @@ public class ByteUtil {
 
     /**
      * 长度为2的字节数组转换成int
-     * @param bytes
-     * @return
      */
     public static int twoBytesToInt(byte[] bytes) {
         return bytes[0] << 8 | (bytes[1] & 0xff);
@@ -128,8 +105,6 @@ public class ByteUtil {
 
     /**
      * 长度为1的字节数组转换成int
-     * @param bytes
-     * @return
      */
     public static int oneBytesToInt(byte[] bytes) {
         return (bytes[0] & 0xff);

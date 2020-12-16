@@ -1,10 +1,5 @@
 package com.zkxy.assembly.sdk.config;
 
-/**
- * @Description : 设备配置
- * @Author : ChangHao
- * @Date: 2020-12-10 16:01
- */
 public class DeviceConfig {
     private int gsrRate;
     private int ppgRate;

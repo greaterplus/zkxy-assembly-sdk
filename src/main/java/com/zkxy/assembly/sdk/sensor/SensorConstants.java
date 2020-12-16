@@ -1,10 +1,5 @@
 package com.zkxy.assembly.sdk.sensor;
 
-/**
- * @Description : 传感器相关的一些字段
- * @Author : ChangHao
- * @Date: 2020-09-10 15:41
- */
 public interface SensorConstants {
 
     /**
