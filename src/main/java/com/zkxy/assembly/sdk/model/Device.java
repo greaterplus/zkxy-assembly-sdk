@@ -114,14 +114,14 @@ public class Device implements Serializable {
     /**
      * 设备开始采集
      */
-    public synchronized boolean startCollect() {
+    public synchronized boolean startCollect(long baseWallTime) {
 
         this.setCollectStatus(CollectStatus.COLLECTING);
         clearAssemblyCache();
         this.notifyDataQueue.clear();
 
         String wallClockTimeAdjustThreadName = this.macId + StrUtil.SPACE + "wallClockTimeAdjustThread";
-        Thread wallClockTimeAdjustThread = ThreadUtil.newThread(new WallClockTimeAdjustTask(this), wallClockTimeAdjustThreadName);
+        Thread wallClockTimeAdjustThread = ThreadUtil.newThread(new WallClockTimeAdjustTask(this, baseWallTime), wallClockTimeAdjustThreadName);
         String assemblyThreadName = this.macId + StrUtil.SPACE + "assemblyTask";
         Thread assemblyThread = ThreadUtil.newThread(new AssemblyTask(this), assemblyThreadName);
 

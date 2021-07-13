@@ -21,10 +21,11 @@ public class WallClockTimeAdjustTask implements Runnable{
     private final Map<SignalType, LinkedBlockingQueue<DataFrame>> dataFrameQueueMap;
     private final Map<SignalType, BaseSensor> sensorMap;
     private volatile boolean isInterrupt = false;
-    private long wallTime = 0;
+    private long wallTime;
 
-    public WallClockTimeAdjustTask(Device device) {
+    public WallClockTimeAdjustTask(Device device, long baseWallTime) {
         this.device = device;
+        this.wallTime = baseWallTime;
         Set<Map.Entry<SignalType, BaseSensor>> allSensor = device.getAllSensorEntry();
         sensorMap = device.getSensorMap();
         dataFrameQueueMap = new HashMap<>(allSensor.size());
@@ -42,7 +43,7 @@ public class WallClockTimeAdjustTask implements Runnable{
         }
         LOG.info("设备: {} WallClockTimeAdjustTask 任务开启", device.getMacId());
 
-        wallTime = System.currentTimeMillis();
+//        wallTime = System.currentTimeMillis();
         Thread currentThread = Thread.currentThread();
         while (!currentThread.isInterrupted() && device.getCollectStatus() == Device.CollectStatus.COLLECTING) {
             //此循环处理没一秒的数据
