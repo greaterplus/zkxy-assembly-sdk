@@ -41,7 +41,7 @@ public class WallClockTimeAdjustTask implements Runnable{
         if (ObjectUtil.isEmpty(device)) {
             return;
         }
-        LOG.info("设备: {} WallClockTimeAdjustTask 任务开启", device.getMacId());
+        LOG.info("设备: {} WallClockTimeAdjustTask 任务开启 baseWallTime: [{}]", device.getMacId(), wallTime);
 
 //        wallTime = System.currentTimeMillis();
         Thread currentThread = Thread.currentThread();

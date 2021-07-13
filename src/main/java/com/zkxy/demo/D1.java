@@ -29,9 +29,9 @@ public class D1 {
         LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue1 = device1.getRawDataFrameQueue(SignalType.ENV);
         LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue2 = device2.getRawDataFrameQueue(SignalType.ENV);
         LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue3 = device3.getRawDataFrameQueue(SignalType.ENV);
-        device1.startCollect();
-        device2.startCollect();
-        device3.startCollect();
+        device1.startCollect(System.currentTimeMillis());
+        device2.startCollect(System.currentTimeMillis());
+        device3.startCollect(System.currentTimeMillis());
 
         new Thread(() -> {
             int i = 0;
