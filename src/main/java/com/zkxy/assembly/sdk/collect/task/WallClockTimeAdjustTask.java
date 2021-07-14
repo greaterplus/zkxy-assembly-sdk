@@ -15,6 +15,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 
 public class WallClockTimeAdjustTask implements Runnable{
+    @FunctionalInterface
+    public interface CurrentTimeGetter {
+        long getCurrentTime();
+    }
     private static final Logger LOG = LoggerFactory.getLogger(WallClockTimeAdjustTask.class);
 
     private Device device;
@@ -22,10 +26,12 @@ public class WallClockTimeAdjustTask implements Runnable{
     private final Map<SignalType, BaseSensor> sensorMap;
     private volatile boolean isInterrupt = false;
     private long wallTime;
+    private CurrentTimeGetter currentTimeGetter;
 
-    public WallClockTimeAdjustTask(Device device, long baseWallTime) {
+    public WallClockTimeAdjustTask(Device device, CurrentTimeGetter getter) {
         this.device = device;
-        this.wallTime = baseWallTime;
+        currentTimeGetter = getter;
+        //this.wallTime = baseWallTime;
         Set<Map.Entry<SignalType, BaseSensor>> allSensor = device.getAllSensorEntry();
         sensorMap = device.getSensorMap();
         dataFrameQueueMap = new HashMap<>(allSensor.size());
@@ -43,6 +49,7 @@ public class WallClockTimeAdjustTask implements Runnable{
         }
         LOG.info("设备: {} WallClockTimeAdjustTask 任务开启 baseWallTime: [{}]", device.getMacId(), wallTime);
 
+        wallTime = currentTimeGetter.getCurrentTime();
 //        wallTime = System.currentTimeMillis();
         Thread currentThread = Thread.currentThread();
         while (!currentThread.isInterrupted() && device.getCollectStatus() == Device.CollectStatus.COLLECTING) {
@@ -99,7 +106,8 @@ public class WallClockTimeAdjustTask implements Runnable{
             }
 
             wallTime += 1000;
-            long currentTime = System.currentTimeMillis();
+            long currentTime = currentTimeGetter.getCurrentTime();
+            //long currentTime = System.currentTimeMillis();
             if (wallTime > currentTime) {
                 try {
                     Thread.sleep(wallTime - currentTime);

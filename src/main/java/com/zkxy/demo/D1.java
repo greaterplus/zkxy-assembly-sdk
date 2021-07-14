@@ -1,6 +1,7 @@
 package com.zkxy.demo;
 
 import cn.hutool.core.thread.ThreadUtil;
+import com.zkxy.assembly.sdk.collect.task.WallClockTimeAdjustTask;
 import com.zkxy.assembly.sdk.config.*;
 import com.zkxy.assembly.sdk.model.Device;
 import com.zkxy.assembly.sdk.model.RawDataFrame;
@@ -21,24 +22,25 @@ public class D1 {
         DeviceConfig deviceConfig = new DeviceConfig(gsrConfig, ppgConfig, envConfig, nineAxisConfig);
 
         Device device1 = new Device("aa", deviceConfig);
-        Device device2 = new Device("bb", deviceConfig);
-        Device device3 = new Device("cc", deviceConfig);
+//        Device device2 = new Device("bb", deviceConfig);
+//        Device device3 = new Device("cc", deviceConfig);
         LinkedBlockingQueue<String> notifyDataQueue1 = device1.getNotifyDataQueue();
-        LinkedBlockingQueue<String> notifyDataQueue2 = device2.getNotifyDataQueue();
-        LinkedBlockingQueue<String> notifyDataQueue3 = device3.getNotifyDataQueue();
+//        LinkedBlockingQueue<String> notifyDataQueue2 = device2.getNotifyDataQueue();
+//        LinkedBlockingQueue<String> notifyDataQueue3 = device3.getNotifyDataQueue();
         LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue1 = device1.getRawDataFrameQueue(SignalType.ENV);
-        LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue2 = device2.getRawDataFrameQueue(SignalType.ENV);
-        LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue3 = device3.getRawDataFrameQueue(SignalType.ENV);
-        device1.startCollect(System.currentTimeMillis());
-        device2.startCollect(System.currentTimeMillis());
-        device3.startCollect(System.currentTimeMillis());
+        LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue2 = device1.getRawDataFrameQueue(SignalType.ACC);
+        LinkedBlockingQueue<RawDataFrame> rawDataFrameQueue3 = device1.getRawDataFrameQueue(SignalType.GYRO);
+        WallClockTimeAdjustTask.CurrentTimeGetter currentTimeGetter = () -> System.currentTimeMillis() + 1;
+        device1.startCollect(currentTimeGetter);
+//        device2.startCollect(System.currentTimeMillis());
+//        device3.startCollect(System.currentTimeMillis());
 
         new Thread(() -> {
             int i = 0;
             while (i<=5) {
                 notifyDataQueue1.offer("01000800F0B61E00030000042042E6414BE47C44E83BA441");
-                notifyDataQueue2.offer("01000800F0B61E00030000042042E6414BE47C44E83BA441");
-                notifyDataQueue3.offer("01000800F0B61E00030000042042E6414BE47C44E83BA441");
+//                notifyDataQueue2.offer("01000800F0B61E00030000042042E6414BE47C44E83BA441");
+//                notifyDataQueue3.offer("01000800F0B61E00030000042042E6414BE47C44E83BA441");
                 ThreadUtil.sleep(1000);
                 i++;
             }
@@ -60,8 +62,8 @@ public class D1 {
             i++;
         }
         device1.stopCollect();
-        device2.stopCollect();
-        device3.stopCollect();
+//        device2.stopCollect();
+//        device3.stopCollect();
 
     }
 }
